@@ -1,9 +1,9 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
+<h2 class="card-title">{{ page.title }}</h2>
+<h6 class="card-subtitle font-italic mb-4 text-muted"><i class="far fa-calendar-alt"></i> Published {{ page.date | date_to_string: "ordinal", "US" }}</h6>
 
-<div class="post">
+<div class="post card-text">
 {{ content }}
 </div>

@@ -1,5 +1,4 @@
 name: "JayDee I/O"
 markdown: redcarpet
-highlighter: pygments
 sass:
     sass_dir: css
