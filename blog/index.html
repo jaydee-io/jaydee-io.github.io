@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<h1>Blog Posts</h1>
+{% for post in site.posts %}
+<div class="card mb-3">
+    <div class="card-body px-1 px-md-3">
+        <div class="pb-3">
+            <div class="far fa-calendar-alt"></div>
+            <span> {{ post.date | date_to_string: "ordinal", "US" }} &raquo; </span>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+        </div>
+        <div style="text-overflow:ellipsis;">{{ post.excerpt }}</div>
+    </div>
+</div>
+{% endfor %}
