@@ -2,7 +2,14 @@
 ---
 @import "base16-tomorrow";
 
-.highlight  { background: $base16-00; }
+.highlight {
+    background: $base16-00;
+    border-color: $base16-02;
+    border-radius: 10px;
+}
+pre {
+    padding: 0.5rem;
+}
 .highlight .c { color: $base16-03; font-style: italic } /* Comment */
 .highlight .err { color: $base16-07; background-color: $base16-08 } /* Error */
 .highlight .k { color: $base16-0E; font-weight: bold } /* Keyword */
@@ -19,7 +26,7 @@
 .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
 .highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
 .highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gp { color: $base16-03 } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
 .highlight .gt { color: #aa0000 } /* Generic.Traceback */

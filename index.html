@@ -1,15 +1,26 @@
 ---
 layout: default
 ---
+<div class="card mb-3">
+  <div class="card-body px-1 px-md-3">
+    <h1>Welcome to <a href="http://jaydee.io"><i>jaydee.io</i></a>!</h1>
+    <p>Hi! Today I launched jaydee.io, a website I'll use to share blog articles, projects I'm working on or contributing to, and some contact informations.</p>
+    <p>Blog posts will show the progress of my journey to become a better software craftsman. Covered subjects will mostly belongs to categories I'm very enthusiastic on: C++, embedded world, clean code, and software craftsmanship.</p>
+  </div>
+</div>
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
+<div class="card">
+  <div class="card-body px-1 px-md-3">
+    <div id="home">
+      <h1>Latest posts</h1>
+      <ul class="posts">
+      {% for post in site.posts limit:3 %}
       <li>
         <span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
         <div style="text-overflow:ellipsis;">{{ post.excerpt }}</div>
       </li>
-    {% endfor %}
-  </ul>
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
 </div>

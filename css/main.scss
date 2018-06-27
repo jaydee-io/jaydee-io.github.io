@@ -6,21 +6,20 @@ $enable-shadows:         true;
 $link-hover-decoration:  none;
 $navbar-brand-font-size: 2.3rem;
 
+$font-size-base: 0.9rem;
 $border-width:  2px;
 $border-radius: 15px;
 
-$body-bg:           $base16-00;
+$body-bg:           $base16-03;
 $body-color:        $base16-04;
-$border-color:      $base16-03;
 $primary:           $base16-0D;
 $link-hover-color:  darken($primary, 20%);
-$card-bg:         rgba(0, 0, 0, 0.3);
+$border-color:      darken($base16-03, 5%);
+$card-bg:           darken($base16-02, 5%);
+$code-color:        $base16-08;
+$pre-color:         $base16-03;
 
 @import "bootstrap/bootstrap";
-
-body {
-    background-image: url("/images/bg_header.jpg");
-}
 
 @font-face {
     font-family: FontLogo;
@@ -32,10 +31,6 @@ body {
     color:        $base16-0D;
     text-shadow:  0px 3px 3px rgba(0, 0, 0, 0.5);
     font-weight:  900;
-
-    @include media-breakpoint-up(lg) {
-        padding-right: 50px;
-    }
 }
 
 .navbar-brand.logo:hover {
