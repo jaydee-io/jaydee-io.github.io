@@ -1,4 +1,9 @@
 name: "JayDee I/O"
 markdown: redcarpet
+permalink: /:categories/:title:output_ext
 sass:
     sass_dir: css
+exclude: [
+    blog-jaydee-io.code-workspace,
+    css/bootstrap
+]
