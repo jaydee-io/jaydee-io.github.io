@@ -6,7 +6,7 @@ layout: default
         <h1 class="card-title">{{ page.title }}</h1>
         <h6 class="card-subtitle font-italic mb-4 text-muted"><div class="far fa-calendar-alt"></div> Published {{ page.date | date_to_string: "ordinal", "US" }}</h6>
 
-        <div class="post card-text">
+        <div class="post card-text text-justify">
         {{ content }}
         </div>
     </div>
