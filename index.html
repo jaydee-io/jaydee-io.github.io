@@ -3,18 +3,19 @@ layout: default
 ---
 <div class="card mb-3">
   <div class="card-body px-1 px-md-3">
-    <h1>Welcome to <i><code>jaydee.io</code></i>!</h1>
-    <p>
+    <h1 class="card-title">Welcome to <i><code>jaydee.io</code></i>!</h1>
+    <h6 class="card-subtitle font-italic mb-4 text-muted"><div class="far fa-calendar-alt"></div> Published Jun 28th, 2018</h6>
+    <p class="card-text text-justify">
       Hi! Today I launched <a href="http://jaydee.io"><i>jaydee.io</i></a>,
       a website used to share blog articles, projects I'm working on or contributing to,
       and some contact informations.
     </p>
-    <p>
+    <p class="card-text text-justify">
       Blog posts shows the progress of my journey to become a better software craftsman.
       Covered subjects mostly belongs to categories I'm very enthusiastic on: C++, embedded world,
       clean code, software craftsmanship, ...
     </p>
-    <p>
+    <p class="card-text text-justify">
       Projects page lists all public and open-source stuff I'm working on, as well as projects I
       contribute to. I'll also provide reference to interresting material on the links page.
       Finally, a contact page helps you to reach me.
@@ -24,16 +25,14 @@ layout: default
 
 <div class="card">
   <div class="card-body px-1 px-md-3">
-    <div id="home">
-      <h1>Latest posts</h1>
-      <ul class="posts">
+      <h1 class="card-title">Latest posts</h1>
+      <ul class="card-text text-justify">
       {% for post in site.posts limit:3 %}
-      <li>
-        <span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
-        <div style="text-overflow:ellipsis;">{{ post.excerpt }}</div>
-      </li>
+        <li>
+          <span class="font-italic"><div class="far fa-calendar-alt"></div> {{ post.date | date_to_string: "ordinal", "US" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
+          <div style="text-overflow:ellipsis;">{{ post.excerpt }}</div>
+        </li>
       {% endfor %}
       </ul>
-    </div>
   </div>
 </div>

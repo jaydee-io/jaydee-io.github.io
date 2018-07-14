@@ -26,6 +26,10 @@ $pre-color:         $base16-03;
     src: url(/fonts/Damion-Regular.ttf);
 }
 
+h6 {
+    font-weight: 100;
+}
+
 .navbar-brand.logo {
     font-family:  FontLogo;
     color:        $base16-0D;
