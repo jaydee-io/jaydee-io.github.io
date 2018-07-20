@@ -1,6 +1,9 @@
 name: "JayDee I/O"
-markdown: redcarpet
+markdown: kramdown
 permalink: /:categories/:title:output_ext
+kramdown:
+    input: GFM
+    hard_wrap: false
 sass:
     sass_dir: css
 exclude: [
