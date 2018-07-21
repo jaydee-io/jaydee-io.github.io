@@ -29,7 +29,7 @@ layout: default
       <ul class="card-text text-justify">
       {% for post in site.posts limit:3 %}
         <li>
-          <span class="font-italic"><div class="far fa-calendar-alt"></div> {{ post.date | date_to_string: "ordinal", "US" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
+          <span class="font-italic"><div class="far fa-calendar-alt"></div> {{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
           <div style="text-overflow:ellipsis;">{{ post.excerpt }}</div>
         </li>
       {% endfor %}

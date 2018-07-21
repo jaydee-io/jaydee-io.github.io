@@ -1,4 +1,4 @@
-name: "JayDee I/O"
+title: "JayDee I/O"
 markdown: kramdown
 permalink: /:categories/:title:output_ext
 kramdown:

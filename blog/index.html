@@ -7,7 +7,7 @@ layout: default
     <div class="card-body px-1 px-md-3">
         <div class="pb-3">
             <div class="far fa-calendar-alt"></div>
-            <span> {{ post.date | date_to_string: "ordinal", "US" }} &raquo; </span>
+            <span> {{ post.date | date_to_string }} &raquo; </span>
             <a href="{{ post.url }}">{{ post.title }}</a>
         </div>
         <div style="text-overflow:ellipsis;">{{ post.excerpt }}</div>
