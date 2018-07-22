@@ -1,4 +1,17 @@
 title: "JayDee I/O"
+description: "A blog dedicated to C++, software craftmanship and clean code... among other things"
+url: jaydee.io
+logo: images/jaydee_logo.jpg
+social:
+    name: Jérôme Dumesnil
+    links:
+        - https://github.com/jaydee-io
+        - https://twitter.com/jerome_jaydee
+author:
+    twitter: jerome_jaydee
+twitter:
+    username: jerome_jaydee
+
 markdown: kramdown
 permalink: /:categories/:title:output_ext
 kramdown:
@@ -10,3 +23,5 @@ exclude: [
     blog-jaydee-io.code-workspace,
     css/bootstrap
 ]
+plugins:
+    - jekyll-seo-tag
