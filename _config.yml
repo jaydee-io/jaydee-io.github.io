@@ -1,6 +1,6 @@
 title: "JayDee I/O"
 description: "A blog dedicated to C++, software craftmanship and clean code... among other things"
-url: jaydee.io
+url: http://jaydee.io
 logo: images/jaydee_logo.jpg
 social:
     name: Jérôme Dumesnil
@@ -25,3 +25,4 @@ exclude: [
 ]
 plugins:
     - jekyll-seo-tag
+    - jekyll-feed
