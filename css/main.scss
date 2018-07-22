@@ -9,6 +9,9 @@ $navbar-brand-font-size: 2.3rem;
 $navbar-brand-font-size: 2.3rem;
 $border-width:  2px;
 $border-radius: 15px;
+$spacer: 1rem;
+$paragraph-margin-bottom: ($spacer * 2);
+$headings-margin-bottom:  ($spacer * 1.25);
 
 $body-bg:           $base16-03;
 $body-color:        $base16-04;
@@ -24,6 +27,10 @@ $pre-color:         $base16-03;
 @font-face {
     font-family: FontLogo;
     src: url(/fonts/Damion-Regular.ttf);
+}
+
+h2 {
+    margin-top: ($spacer * 4);
 }
 
 h6 {
