@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Resource owning - Part 1 : Rule of three"
-published: true
+edited: 2018-07-28
 tag: [C++]
 ---
 I've seen too much code base mixing technical code with business one. Particulary, a lot of business code is owning technical resource. Trying to figure out what this code does is often a lot of pain. The resource owning code deserve its own class, independent of the business code. This is a good programming practice, well described in the [Separation Of Concern](https://en.wikipedia.org/wiki/Separation_of_concerns) principle. In this post, we will see what are the good rules of thumb to design a resource owning class, starting with the _Rule of three_.
@@ -41,14 +41,14 @@ private:
 This is a simple basic implementation of a circular buffer. The `data` points to a heap allocated buffer of `capacity` bytes. `start` and `end` are indexes used to delimit the occupied part of the buffer. The listing above shows the implementation of the constructor and desctructor. 
 
 {% highlight C++ linenos %}
-explicit Buffer(size_t _capacity = 0)
+explicit Buffer::Buffer(size_t _capacity = 0)
 : data(_capacity ? new uint8_t[_capacity] : nullptr)
 , capacity(_capacity)
 , start(-1)
 , end(-1)
 { }
 
-~Buffer(void)
+Buffer::~Buffer(void)
 {
     delete [] data;
 }
@@ -108,9 +108,19 @@ The code is pretty straight forward:
 * Next (line 8), we cleanup the current buffer by freeing `data`.
 * Finally (lines 11 to 15), we copy the passed buffer, like we did in the copy constructor.
 
-Obviously, don't forget to return a reference to the current buffer in order to allow usage like `Buffer a, b, c; a = b = c`.
+Obviously, don't forget to return a reference to the current buffer in order to allow usage like:
+{% highlight C++ linenos %}
+Buffer a, b, c;
+a = b = c;
+{% endhighlight %}
 
-This implementation raises some remarks. First, self assignment is very very rare, so the test on line 4 will be false most of the time. Executing useless code 99.99% of the time isn't very pleasant. And secondly, the rest of the code is a duplication of destructor and copy constructor, which violates the [Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle.
+This implementation raises some remarks. First, self assignment is very very rare, so the test on line 4
+will be false most of the time. Executing useless code 99.99% of the time isn't very pleasant. Secondly,
+the rest of the code is a duplication of destructor and copy constructor, which violates the [Don't Repeat
+Yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle. And last, but not least, what
+about exception safety ? What will happen if we get out of memory and the `new` operator raises an
+`std::bad_alloc` ? `data` will be a dangling pointer, our `Buffer` will go into an invalid state and
+accessing it may result in surprising behavior.
 
 But don't worry, we will fix that in the next part of the series: "_Resource owning - Part 2 : Rule of five_".
 
