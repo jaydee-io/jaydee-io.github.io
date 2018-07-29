@@ -12,7 +12,7 @@ twitter:
     username: jerome_jaydee
 
 markdown: kramdown
-permalink: /:categories/:title:output_ext
+permalink: /posts/:title:output_ext
 kramdown:
     input: GFM
     hard_wrap: false

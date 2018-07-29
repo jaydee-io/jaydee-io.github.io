@@ -4,19 +4,24 @@ layout: default
 <div class="card">
     <div class="card-body px-3">
         <h1 class="card-title">{{ page.title }}</h1>
-        <h6 class="card-subtitle font-italic text-muted">
-            <div>
-                <i class="far fa-calendar-alt"></i>
-                Published on {{ page.date | date: '%b %d, %Y' }}
-                {% if page.edited %}(Last edited on {{ page.edited | date: '%b %d, %Y' }}){% endif %}
-            </div>
+        <h6 class="card-subtitle text-muted row">
+            <span class="font-italic col-12 col-lg-auto">
+                <i class="far fa-calendar-alt"></i> Published on {{ page.date | date: '%b %d, %Y' }}
+            </span>
+            {% if page.edited %}
+            <span class="col-auto px-0 d-none d-lg-inline">&vert;</span>
+            <span class="font-italic col-12 col-lg-auto">
+                <i class="fas fa-sync-alt"></i> Last edited on {{ page.edited | date: '%b %d, %Y' }}
+            </span>
+            {% endif %}
             {% if page.tags %}
-            <div class="mt-1">
+            <span class="col-auto px-0 d-none d-lg-inline">&vert;</span>
+            <span class="col-auto">
                 <i class="fas fa-tags"></i>
                 {% for tag in page.tags %}
                     <div class="badge badge-pill badge-primary">{{ tag }}</div>
                 {% endfor %}
-            </div>
+            </span>
             {% endif %}
         </h6>
 
