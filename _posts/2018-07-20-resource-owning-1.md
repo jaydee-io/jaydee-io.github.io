@@ -41,7 +41,7 @@ private:
 This is a simple basic implementation of a circular buffer. The `data` points to a heap allocated buffer of `capacity` bytes. `start` and `end` are indexes used to delimit the occupied part of the buffer. The listing above shows the implementation of the constructor and desctructor. 
 
 {% highlight C++ linenos %}
-explicit Buffer::Buffer(size_t _capacity = 0)
+explicit Buffer::Buffer(size_t _capacity)
 : data(_capacity ? new uint8_t[_capacity] : nullptr)
 , capacity(_capacity)
 , start(-1)
@@ -125,4 +125,4 @@ accessing it may result in surprising behavior.
 But don't worry, we will fix that in the next part of the series: "_Resource owning - Part 2 : Rule of five_".
 
 ## Conclusion
-Today, we saw that when talking about resource owning there are some good pratices to use. [Separation Of Concern](https://en.wikipedia.org/wiki/Separation_of_concerns) principle should be applied to separate the resource handling code from the business one. Also, if one of destructor, copy constructor or copy assignment operator is defined, all of them must also be defined, as stated by the [Rule of three](https://en.cppreference.com/w/cpp/language/rule_of_three).
+Today, we have seen that when talking about resource owning there are some good pratices to use. [Separation Of Concern](https://en.wikipedia.org/wiki/Separation_of_concerns) principle should be applied to separate the resource handling code from the business one. Also, if one of destructor, copy constructor or copy assignment operator is defined, all of them must also be defined, as stated by the [Rule of three](https://en.cppreference.com/w/cpp/language/rule_of_three).
