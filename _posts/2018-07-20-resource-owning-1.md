@@ -9,7 +9,7 @@ I've seen too much code base mixing technical code with business one. Particular
 This post is the first part of a series about _Resource owning_:
 
 * [Resource owning - Part 1 : _Rule of three_]({{ site.baseurl }}{% post_url 2018-07-20-resource-owning-1 %})
-* Resource owning - Part 2 : _Rule of five_
+* [Resource owning - Part 2 : _Rule of five_]({{ site.baseurl }}{% post_url 2018-07-31-resource-owning-2 %})
 * Resource owning - Part 3 : _Rule of zero_
 
 Let's start with a good use case : _The circular buffer_
@@ -122,7 +122,7 @@ about exception safety ? What will happen if we get out of memory and the `new` 
 `std::bad_alloc` ? `data` will be a dangling pointer, our `Buffer` will go into an invalid state and
 accessing it may result in surprising behavior.
 
-But don't worry, we will fix that in the next part of the series: "_Resource owning - Part 2 : Rule of five_".
+But don't worry, we will fix that in the next part of the series: "[Resource owning - Part 2 : _Rule of five_]({{ site.baseurl }}{% post_url 2018-07-31-resource-owning-2 %})".
 
 ## Conclusion
 Today, we have seen that when talking about resource owning there are some good pratices to use. [Separation Of Concern](https://en.wikipedia.org/wiki/Separation_of_concerns) principle should be applied to separate the resource handling code from the business one. Also, if one of destructor, copy constructor or copy assignment operator is defined, all of them must also be defined, as stated by the [Rule of three](https://en.cppreference.com/w/cpp/language/rule_of_three).
