@@ -41,6 +41,10 @@ blockquote > ul + p {
     margin-top: -1rem;
 }
 
+blockquote p:last-child {
+    margin-bottom: 0rem;
+}
+
 .navbar-brand.logo {
     font-family:  FontLogo;
     color:        $base16-0D;
@@ -49,4 +53,27 @@ blockquote > ul + p {
 
 .navbar-brand.logo:hover {
     color: $link-hover-color;
+}
+
+.blockquote {
+    font-family:      Georgia, serif;
+    font-style:       italic;
+    text-shadow:      0px 3px 3px rgba(0, 0, 0, 0.5);
+    line-height:      1.5rem;
+    padding:          1rem;
+    background-color: $base16-00;
+    text-align:       left;
+}
+
+$yoda-color: #007700;
+.yoda {
+    color:        $yoda-color;
+    border-left:  0.2rem solid $yoda-color;
+    position:     relative;
+    padding-left: 4.5rem;
+
+    background:          url('/images/yoda/yoda.png'),$base16-00;
+    background-repeat:   no-repeat;
+    background-size:     2.5rem auto;
+    background-position: 1rem center;
 }
