@@ -4,14 +4,10 @@
 
 $enable-shadows:         true;
 $link-hover-decoration:  none;
-$navbar-brand-font-size: 2.3rem;
 
 $navbar-brand-font-size: 2.3rem;
 $border-width:  2px;
 $border-radius: 15px;
-$spacer: 1rem;
-$paragraph-margin-bottom: ($spacer * 2);
-$headings-margin-bottom:  ($spacer * 1.25);
 
 $body-bg:           $base16-03;
 $body-color:        $base16-04;
@@ -30,11 +26,19 @@ $pre-color:         $base16-03;
 }
 
 h2 {
-    margin-top: ($spacer * 4);
+    margin-top: ($spacer * 3);
 }
 
 h6 {
     font-weight: 100;
+}
+
+p + ul {
+    margin-top: -1rem;
+}
+
+blockquote > ul + p {
+    margin-top: -1rem;
 }
 
 .navbar-brand.logo {
