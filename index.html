@@ -26,9 +26,9 @@ layout: default
 <div class="card">
   <div class="card-body px-3">
       <h1 class="card-title">Latest posts</h1>
-      <ul class="card-text text-justify">
+      <ul class="list-group list-group-flush text-justify">
       {% for post in site.posts limit:3 %}
-        <li>
+        <li class="list-group-item">
           <span class="font-italic"><div class="far fa-calendar-alt"></div> {{ post.date | date: '%b %d, %Y' }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
           <div style="text-overflow:ellipsis;">{{ post.excerpt }}</div>
         </li>

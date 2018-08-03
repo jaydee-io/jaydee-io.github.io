@@ -5,9 +5,10 @@
 $enable-shadows:         true;
 $link-hover-decoration:  none;
 
-$navbar-brand-font-size: 2.3rem;
-$border-width:  2px;
-$border-radius: 15px;
+$navbar-brand-font-size:    2.3rem;
+$border-width:              2px;
+$border-radius:             15px;
+$list-group-item-padding-x: 0;
 
 $body-bg:           $base16-03;
 $body-color:        $base16-04;
@@ -15,6 +16,7 @@ $primary:           $base16-0D;
 $link-hover-color:  darken($primary, 20%);
 $border-color:      darken($base16-03, 5%);
 $card-bg:           darken($base16-02, 5%);
+$list-group-bg:     darken($base16-02, 5%);
 $code-color:        $base16-08;
 $pre-color:         $base16-03;
 
