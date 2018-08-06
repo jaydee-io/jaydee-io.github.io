@@ -2,20 +2,20 @@
 layout: post
 title: "Resource owning - Part 1 : Rule of three"
 edited: 2018-07-28
-tag: [C++]
+tag: [C++, Rule of three, Single Responsibility Principle]
 ---
-I've seen too much code base mixing technical code with business one. Particulary, a lot of business code is owning technical resource. Trying to figure out what this code does is often a lot of pain. The resource owning code deserve its own class, independent of the business code. This is a good programming practice, well described in the [Separation Of Concern](https://en.wikipedia.org/wiki/Separation_of_concerns) principle. In this post, we will see what are the good rules of thumb to design a resource owning class, starting with the _Rule of three_.
+I've seen too much code base mixing technical code with business one. Particulary, a lot of business code is owning technical resource. Trying to figure out what this code does is often a lot of pain. The resource owning code deserve its own class, independent of the business code. This is a good programming practice, well described in the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle). In this post, we will see what are the good rules of thumb to design a resource owning class, starting with the _Rule of three_.
 
 This post is the first part of a series about _Resource owning_:
 
 * [Resource owning - Part 1 : _Rule of three_]({{ site.baseurl }}{% post_url 2018-07-20-resource-owning-1 %})
 * [Resource owning - Part 2 : _Rule of five_]({{ site.baseurl }}{% post_url 2018-07-31-resource-owning-2 %})
-* Resource owning - Part 3 : _Rule of zero_
+* [Resource owning - Part 3 : _Rule of zero_]({{ site.baseurl }}{% post_url 2018-08-06-resource-owning-3 %})
 
 Let's start with a good use case : _The circular buffer_
 
 ## Use case: _The circular buffer_
-Let's say we have to write an application that process data packet coming from network, a serial line or whatever input interface. After few minutes of reflexion, we come up with a design consisting in two parts. The first one is responsible for fetching a chunk of data from the physical interface and for forwarding it to the second part, which will do all the business processing related to this data packet. To effectively manage these data packets, we opted for a big circular buffer, allocated just once, which can store several packets. So, in accordance to the separation of concern principle, the circular buffer ressource deserve its own class. Let's name it `Buffer` for code brevity.
+Let's say we have to write an application that process data packet coming from network, a serial line or whatever input interface. After few minutes of reflexion, we come up with a design consisting in two parts. The first one is responsible for fetching a chunk of data from the physical interface and for forwarding it to the second part, which will do all the business processing related to this data packet. To effectively manage these data packets, we opted for a big circular buffer, allocated just once, which can store several packets. So, in accordance to the single responsibility principle, the circular buffer ressource deserve its own class. Let's name it `Buffer` for code brevity.
 
 {% highlight C++ linenos %}
 class Buffer
@@ -125,4 +125,4 @@ accessing it may result in surprising behavior.
 But don't worry, we will fix that in the next part of the series: "[Resource owning - Part 2 : _Rule of five_]({{ site.baseurl }}{% post_url 2018-07-31-resource-owning-2 %})".
 
 ## Conclusion
-Today, we have seen that when talking about resource owning there are some good pratices to use. [Separation Of Concern](https://en.wikipedia.org/wiki/Separation_of_concerns) principle should be applied to separate the resource handling code from the business one. Also, if one of destructor, copy constructor or copy assignment operator is defined, all of them must also be defined, as stated by the [Rule of three](https://en.cppreference.com/w/cpp/language/rule_of_three).
+Today, we have seen that when talking about resource owning there are some good pratices to use. [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) should be applied to separate the resource handling code from the business one. Also, if one of destructor, copy constructor or copy assignment operator is defined, all of them must also be defined, as stated by the [Rule of three](https://en.cppreference.com/w/cpp/language/rule_of_three).

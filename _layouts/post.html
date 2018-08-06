@@ -6,7 +6,12 @@ layout: default
         <h1 class="card-title">{{ page.title }}</h1>
         <h6 class="card-subtitle text-muted row">
             <span class="font-italic col-12 col-lg-auto">
-                <i class="far fa-calendar-alt"></i> Published on {{ page.date | date: '%b %d, %Y' }}
+                <i class="far fa-calendar-alt"></i>    
+                {% if page.date %}
+                    Published on {{ page.date | date: '%b %d, %Y' }}
+                {% else %}
+                    Draft
+                {% endif %}
             </span>
             {% if page.edited %}
             <span class="col-auto px-0 d-none d-lg-inline">&vert;</span>
@@ -15,7 +20,7 @@ layout: default
             </span>
             {% endif %}
             {% if page.tags %}
-            <span class="col-auto px-0 d-none d-lg-inline">&vert;</span>
+            <span class="col-auto px-0 d-none d-lg-inline">|</span>
             <span class="col-auto">
                 <i class="fas fa-tags"></i>
                 {% for tag in page.tags %}

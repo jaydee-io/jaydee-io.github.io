@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Resource owning - Part 2 : Rule of five"
-tag: [C++]
+tag: [C++, Rule of five, Copy and swap, Exception safety]
 ---
 In the first part of this series on _resource owning_, we've seen that separating resource owning from business
 code is a good practice. We've also seen that if one of destructor, copy constructor or copy assignment operator
@@ -12,7 +12,7 @@ owning object into another. But before that, we'll fix the 3 issues of our first
 This post is part of a series about _Resource owning_:
 * [Resource owning - Part 1 : _Rule of three_]({{ site.baseurl }}{% post_url 2018-07-20-resource-owning-1 %})
 * [Resource owning - Part 2 : _Rule of five_]({{ site.baseurl }}{% post_url 2018-07-31-resource-owning-2 %})
-* Resource owning - Part 3 : _Rule of zero_
+* [Resource owning - Part 3 : _Rule of zero_]({{ site.baseurl }}{% post_url 2018-08-06-resource-owning-3 %})
 
 Let's first remind our use case of a circular buffer class and particulary the implementation we ended with:
 {% highlight C++ linenos %}

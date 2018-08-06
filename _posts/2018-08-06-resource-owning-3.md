@@ -2,7 +2,7 @@
 layout: post
 title: "Resource owning - Part 3 : Rule of zero"
 published: true
-tag: [C++]
+tag: [C++, Rule of zero, Single Responsibility Principle, Passing parameter by value]
 ---
 In the first two parts of this series on _resource owning_, we've seen some good practices about resource
 owning: separating them from business code, how to offer a strong exception guarantee and how to have a
@@ -15,7 +15,7 @@ and shouldn't be defined otherwise. But before that, we'll optimize our assignme
 This post is part of a series about _Resource owning_:
 * [Resource owning - Part 1 : _Rule of three_]({{ site.baseurl }}{% post_url 2018-07-20-resource-owning-1 %})
 * [Resource owning - Part 2 : _Rule of five_]({{ site.baseurl }}{% post_url 2018-07-31-resource-owning-2 %})
-* Resource owning - Part 3 : _Rule of zero_
+* [Resource owning - Part 3 : _Rule of zero_]({{ site.baseurl }}{% post_url 2018-08-06-resource-owning-3 %})
 
 Let's start with the assignment operators.
 
@@ -148,10 +148,11 @@ and ended with a stronger statement, that:
 ><footer class="blockquote-footer text-right"><cite title="R. Martinho Fernandes">R. Martinho Fernandes</cite></footer>
 {:.blockquote .yoda}
 
-And I think he's right :wink:. For example, say we have a class that doesn't define any of the 5 special member 
+And I think he's right :wink:. This is just a special case of application of the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle)
+principle. For example, say we have a class that doesn't define any of the 5 special member 
 functions. And say that, for any reason (maybe we added a data member that cannot be moved), we need to add the 
 move constructor. In this case, the move constructor and resource owning part of this class should be extracted 
-and put in its own class to handle the resource. And leaving the original class without special member function.
+and put in its own class to handle the resource. Leaving the original class without special member function.
 
 For now, I haven't seen a class that need to define one of the 5 special member functions **and** that doesn't deal exclusively with ownership. If you do, please share it. There is only one use case I can think of: in C++, there is a special case where the destructor needs to be defined, but not necessarily the other special member functions and the class isn't owning a resource: inheritance.
 
