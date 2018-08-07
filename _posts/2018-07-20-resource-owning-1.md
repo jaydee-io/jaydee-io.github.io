@@ -63,7 +63,7 @@ In our case, the copy constructor and copy assignment operator automaticaly gene
 So when talking about resource owning, the first good rule of thumb is given by the **Rule of three** :
 
 > If a class requires a user-defined destructor, a user-defined copy constructor, or a user-defined copy assignment operator, it almost certainly requires all three.
-{:.blockquote .yoda}
+{:.yoda-quote}
 
 So here we go for the copy constructor:
 

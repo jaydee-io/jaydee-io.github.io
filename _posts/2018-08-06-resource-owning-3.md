@@ -146,7 +146,7 @@ and ended with a stronger statement, that:
 > deal exclusively with ownership. Other classes should not have custom destructors, copy/move constructors
 > or copy/move assignment operators.
 ><footer class="blockquote-footer text-right"><cite title="R. Martinho Fernandes">R. Martinho Fernandes</cite></footer>
-{:.blockquote .yoda}
+{:.yoda-quote}
 
 And I think he's right :wink:. This is just a special case of application of the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle)
 principle. For example, say we have a class that doesn't define any of the 5 special member 

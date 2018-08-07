@@ -223,7 +223,7 @@ that states:
 >     <li>a user-defined move constructor,</li>
 >     <li>or a user-defined move assignment operator,</li>
 > </ul>it almost certainly requires all five.
-{:.blockquote .yoda}
+{:.yoda-quote}
 
 This lead to the following implementation for our `Buffer` class.
 

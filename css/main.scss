@@ -68,7 +68,9 @@ blockquote p:last-child {
 }
 
 $yoda-color: #007700;
-.yoda {
+.yoda-quote {
+    @extend .blockquote;
+    @extend .rounded-right;
     color:        $yoda-color;
     border-left:  0.2rem solid $yoda-color;
     position:     relative;
