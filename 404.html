@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<script lang="text/javascript">
+    window.onload = function() {
+        document.getElementById("currentAddress").innerHTML = window.location.href;
+    };
+</script>
+
+<div class="card mb-3">
+  <div class="card-body card-text px-3 row">
+        <div class="col-auto pr-5"><img src="/images/jaydee_logo.jpg" class="rounded-circle border" style="width: 10rem; height:10rem;"></img></div>
+        <div class="col card-text">
+        <div>
+            <h3 class="font-italic pb-3"><img src="/images/Thinking_Face_Emoji.png" style="width: 3rem; height:3rem;"> It's seems that something goes wrong ?!?!</h3 class="font-italic">
+            <div>Please send me a mail at <a href="mailto:jerome.dumesnil@gmail.com">jerome.dumesnil@gmail.com</a>
+            with the bad link:</div>
+            <pre id="currentAddress" class="highlight font-italic my-3"></pre>
+            <div>I'll try to fix it as soon as possible.</div>
+        </div>
+        </div>
+  </div>
+</div>
