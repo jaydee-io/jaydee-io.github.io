@@ -21,12 +21,10 @@ layout: default
             {% endif %}
             {% if page.tags %}
             <span class="col-auto px-0 d-none d-lg-inline">|</span>
-            <span class="col-auto">
-                <i class="fas fa-tags"></i>
+            <span class="col-auto d-block d-lg-inline pl-3 pr-0"><i class="fas fa-tags"></i></span>
                 {% for tag in page.tags %}
-                    <div class="badge badge-pill badge-primary">{{ tag }}</div>
+            <span class="col-auto d-block d-lg-inline px-lg-1 pl-3 pr-0"><div class="badge badge-pill badge-primary">{{ tag }}</div></span>
                 {% endfor %}
-            </span>
             {% endif %}
         </h6>
 
