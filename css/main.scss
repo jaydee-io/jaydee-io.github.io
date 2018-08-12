@@ -57,6 +57,21 @@ blockquote p:last-child {
     color: $link-hover-color;
 }
 
+@include media-breakpoint-down(lg) {
+    .navbar-collapse {
+        padding: 0 1rem 0.5rem 1rem;
+        border-radius: 0 0 $border-radius $border-radius;
+        background-color: rgba($black, 0.25);
+    }
+}
+
+.social-icon {
+    font-size: 2rem;
+    @include media-breakpoint-down(lg) {
+    vertical-align: middle;
+    }
+}
+
 .blockquote {
     font-family:      Georgia, serif;
     font-style:       italic;
