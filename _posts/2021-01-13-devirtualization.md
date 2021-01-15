@@ -241,7 +241,7 @@ particular case of the _Single Responsibility Principle_: one file = one class =
 separate declaration (in header file) from definition (in cpp file). Doing this could prevent the compiler to apply
 optimizations like devirtualization, inlining and so accross the whole program.
 
-To circumvent this problem, compilers implements a technique called _Link Time Optimization_ wich allows trying to apply
+To circumvent this problem, compilers implements a technique called _Link Time Optimization_ which allows trying to apply
 above optimizations at link time, that is to say for the whole program. Under gcc/clang, the option is named `-flto` and
 could be used like this:
 
@@ -268,9 +268,7 @@ documentation to activate options that speedup link time: paralellizing link, us
 Good coders apply good pratices: _Programming to interface_ (or _Dependency Inversion Principle_), putting distinct
 classes into distinct files, separating declaration from definition, ... But in C++, this good practices may lead to
 performance penalties, even more in embedded code. Fortunately, today's compilers are able to mitigate this penalty or
-even remove it completely using techniques such as _inlining_, _devirtualization_ or _link time optimization_. So help
-your compiler by giving it optimization options (`-O2`, `-O3`, `-flto`) and code hints (`final` keyword) ; so that in
-return, your compiler will help you to be a good coder.
+even remove it completely using techniques such as _inlining_, _devirtualization_ or _link time optimization_.
 
 > Help your compiler by giving it optimization options (`-O2`, `-O3`, `-flto`, ...) and code hints (`final` keyword) ;
 > so that in return, your compiler will help you to be a good coder.
