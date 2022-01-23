@@ -11,6 +11,10 @@ author: Jérôme Dumesnil
 twitter:
     username: jerome_jaydee
 
+collections:
+    projects:
+        output: true
+
 markdown: kramdown
 permalink: /posts/:title:output_ext
 kramdown:

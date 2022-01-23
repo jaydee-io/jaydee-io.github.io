@@ -3,10 +3,10 @@ layout: default
 ---
 <div class="card">
     <div class="card-body px-3">
-        <h1 class="card-title">{{ page.title }}</h1>
+        <h1 class="card-title">{{ page.title | markdownify }}</h1>
         <h6 class="card-subtitle text-muted row">
             <span class="font-italic col-12 col-lg-auto">
-                <i class="far fa-calendar-alt"></i>    
+                <i class="far fa-calendar-alt"></i>
                 {% if page.date %}
                     Published on {{ page.date | date: '%b %d, %Y' }}
                 {% else %}
@@ -37,10 +37,10 @@ layout: default
 <div class="card mt-3">
     <div class="card-body text-center">
         <h4 class="mb-2 font-italic">Share this post!</h4>
-        <h3>
+        <h3 class="mb-0">
             {% assign message  = "Checkout this post on JayDee I/O" | url_encode %}
             {% assign post_url = site.url | append: page.url | url_encode  %}
-            {% assign post_title = page.title | url_encode  %}
+            {% assign post_title = page.title | markdownify | strip_html | url_encode  %}
             <a class="mx-2" target="_blank" href="https://twitter.com/intent/tweet?text={{ message }}&url={{ post_url }}&via={{ site.twitter.username | url_encode }}"><i class="fab fa-twitter"></i></a>
             <a class="mx-2" target="_blank" href="https://www.facebook.com/sharer.php?t={{ post_title }}&u={{ post_url }}"><i class="fab fa-facebook"></i></a>
             <a class="mx-2" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{ post_url }}&title={{ post_title }}"><i class="fab fa-linkedin"></i></a>

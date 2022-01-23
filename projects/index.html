@@ -1,0 +1,37 @@
+---
+layout: default
+title: "Personnal projects"
+---
+<style>
+.project-title > p
+{
+    margin: 0;
+    display: inline;
+};
+</style>
+
+<h1>Personnal projects</h1>
+{% assign projects = site.projects | where: "index_page",true %}
+{% for project in projects %}
+{% assign project_posts_1 = site.projects | where: "name",project.name | where_exp:"post","post.index_page == nil" %}
+{% assign project_posts_2 = site.projects | where: "name",project.name | where_exp:"post","post.index_page == false" %}
+{% assign project_posts = project_posts_1 | concat: project_posts_2 %}
+<div class="card mb-3">
+    <div class="card-body px-3">
+        <div class="pb-3">
+            <a href="{{ project.url }}">
+                <h4 class="project-title my-0">&raquo; {{ project.title | markdownify }}</h4>
+            </a>
+            <h6 class="text-muted"><i class="far fa-calendar-alt"></i> {{ project.date | date: '%b %d, %Y' }}</h6>
+            {% if project_posts.size == 1 %}
+                <h6 class="text-muted"><i class="fas fa-rss"></i> 1 post</h6>
+            {% elsif project_posts.size > 1 %}
+                <h6 class="text-muted"><i class="fas fa-rss"></i> {{ project_posts.size }} posts</h6>
+            {% else %}
+                <h6 class="text-muted"><i>No post concerning this project yet, but wait they are coming soon!</i></h6>
+            {% endif %}
+        </div>
+        <div style="text-overflow:ellipsis;">{{ project.excerpt }}</div>
+    </div>
+</div>
+{% endfor %}

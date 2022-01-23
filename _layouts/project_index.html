@@ -1,0 +1,26 @@
+---
+layout: post
+---
+<style>
+.project-title > p
+{
+    margin: 0;
+    display: inline;
+};
+</style>
+
+{{ content }}
+{% assign project_posts_1 = site.projects | where: "name",document.name | where_exp:"post","post.index_page == nil" %}
+{% assign project_posts_2 = site.projects | where: "name",document.name | where_exp:"post","post.index_page == false" %}
+{% assign project_posts = project_posts_1 | concat: project_posts_2 %}
+
+{% if project_posts.size > 0 %}
+<p>Posts from this project:</p>
+<ul class="posts-list">
+{% for project_post in project_posts %}
+<li><a href="{{ project_post.url }}">{{ project_post.title | markdownify }}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+<i>No post concerning this project yet, but wait they are coming soon!</i>
+{% endif %}
